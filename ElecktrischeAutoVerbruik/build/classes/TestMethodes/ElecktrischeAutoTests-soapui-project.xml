@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9d81df2c-6f71-4711-b998-8c2d4cc995e4" activeEnvironment="Default" name="ElecktrischeAutoTests" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b5a0a87e-af5f-4dd5-9c67-350d771e5533" wsaVersion="NONE" name="ElecktrischeAutoImplSoapBinding" type="wsdl" bindingName="{http://Resources}ElecktrischeAutoImplSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/jouke-bouwe/workspace/ElecktrischeAutoVerbruik/WebContent/wsdl/ElecktrischeAutoImpl.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\jouke-bouwe\workspace\ElecktrischeAutoVerbruik\WebContent\wsdl\ElecktrischeAutoImpl.wsdl"><con:part><con:url>file:\C:\Users\jouke-bouwe\workspace\ElecktrischeAutoVerbruik\WebContent\wsdl\ElecktrischeAutoImpl.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://Resources" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Resources" xmlns:intf="http://Resources" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://Resources" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="addVerbruikAuto">
+        <complexType>
+          <sequence>
+            <element name="eigenaar" type="xsd:string"/>
+            <element name="auto" type="xsd:string"/>
+            <element name="verbruik" type="xsd:double"/>
+            <element name="kilometerStand" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addVerbruikAutoResponse">
+        <complexType>
+          <sequence>
+            <element name="addVerbruikAutoReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="berekenVerbruikElecktrischeAuto">
+        <complexType>
+          <sequence>
+            <element name="beginPunt" type="xsd:int"/>
+            <element name="eindPunt" type="xsd:int"/>
+            <element name="verbruikKWH" type="xsd:double"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="berekenVerbruikElecktrischeAutoResponse">
+        <complexType>
+          <sequence>
+            <element name="berekenVerbruikElecktrischeAutoReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="berekenVerbruikElecktrischeAutoResponse">
+    <wsdl:part element="impl:berekenVerbruikElecktrischeAutoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addVerbruikAutoRequest">
+    <wsdl:part element="impl:addVerbruikAuto" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addVerbruikAutoResponse">
+    <wsdl:part element="impl:addVerbruikAutoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="berekenVerbruikElecktrischeAutoRequest">
+    <wsdl:part element="impl:berekenVerbruikElecktrischeAuto" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ElecktrischeAutoImpl">
+    <wsdl:operation name="addVerbruikAuto">
+      <wsdl:input message="impl:addVerbruikAutoRequest" name="addVerbruikAutoRequest"></wsdl:input>
+      <wsdl:output message="impl:addVerbruikAutoResponse" name="addVerbruikAutoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="berekenVerbruikElecktrischeAuto">
+      <wsdl:input message="impl:berekenVerbruikElecktrischeAutoRequest" name="berekenVerbruikElecktrischeAutoRequest"></wsdl:input>
+      <wsdl:output message="impl:berekenVerbruikElecktrischeAutoResponse" name="berekenVerbruikElecktrischeAutoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ElecktrischeAutoImplSoapBinding" type="impl:ElecktrischeAutoImpl">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addVerbruikAuto">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addVerbruikAutoRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addVerbruikAutoResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="berekenVerbruikElecktrischeAuto">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="berekenVerbruikElecktrischeAutoRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="berekenVerbruikElecktrischeAutoResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ElecktrischeAutoImplService">
+    <wsdl:port binding="impl:ElecktrischeAutoImplSoapBinding" name="ElecktrischeAutoImpl">
+      <wsdlsoap:address location="http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint></con:endpoints><con:operation id="9103da72-df72-4290-8168-9e9476d8247d" isOneWay="false" action="" name="addVerbruikAuto" bindingOperationName="addVerbruikAuto" type="Request-Response" outputName="addVerbruikAutoResponse" inputName="addVerbruikAutoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8d46d024-7da5-4d8d-a1b8-650facce4888" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:addVerbruikAuto>\r
+         <res:eigenaar>?</res:eigenaar>\r
+         <res:auto>?</res:auto>\r
+         <res:verbruik>?</res:verbruik>\r
+         <res:kilometerStand>?</res:kilometerStand>\r
+      </res:addVerbruikAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://Resources/ElecktrischeAutoImpl/addVerbruikAutoRequest"/></con:call></con:operation><con:operation id="eb5fb425-6077-4988-baa6-7d5fea4f8d0c" isOneWay="false" action="" name="berekenVerbruikElecktrischeAuto" bindingOperationName="berekenVerbruikElecktrischeAuto" type="Request-Response" outputName="berekenVerbruikElecktrischeAutoResponse" inputName="berekenVerbruikElecktrischeAutoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="12f39333-4140-4eff-9520-7ee3205794ed" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:berekenVerbruikElecktrischeAuto>\r
+         <res:beginPunt>?</res:beginPunt>\r
+         <res:eindPunt>?</res:eindPunt>\r
+         <res:verbruikKWH>?</res:verbruikKWH>\r
+      </res:berekenVerbruikElecktrischeAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://Resources/ElecktrischeAutoImpl/berekenVerbruikElecktrischeAutoRequest"/></con:call></con:operation></con:interface><con:testSuite id="97b19fb8-d053-4d65-84e0-e64952dbeecd" name="ElecktrischeAutoTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="606be035-f77a-46af-8a93-8c03e904b280" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="autoToevoegen" searchProperties="true"><con:settings/><con:testStep type="request" name="autoToevoegen1" id="3242a7bb-17e9-41bc-8ac9-1c0d4d5d80df"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>addVerbruikAuto</con:operation><con:request name="autoToevoegen1" id="a81fb8d3-f5c2-42ef-a8b6-03c26d8147c7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:addVerbruikAuto>\r
+         <res:eigenaar>Klaas</res:eigenaar>\r
+         <res:auto>Ford</res:auto>\r
+         <res:verbruik>0.2</res:verbruik>\r
+         <res:kilometerStand>125212</res:kilometerStand>\r
+      </res:addVerbruikAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d156867a-139f-4d40-b21f-23433c888677"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoToevoegen2" id="492b4109-4a05-44db-b949-cb14a247ec36"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>addVerbruikAuto</con:operation><con:request name="autoToevoegen2" id="f544293f-1497-40ce-b1fb-24d0bbe495cc"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:addVerbruikAuto>\r
+         <res:eigenaar>Jouke</res:eigenaar>\r
+         <res:auto>Bucatti</res:auto>\r
+         <res:verbruik>0.5</res:verbruik>\r
+         <res:kilometerStand>45212</res:kilometerStand>\r
+      </res:addVerbruikAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="bad9ff36-8775-4b24-9236-a391f1122fa7"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoToevoegen3" id="773f2b9c-8240-42a4-ab2b-93e73f52f36e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>addVerbruikAuto</con:operation><con:request name="autoToevoegen3" id="ebc8f691-e3da-42c3-8b7c-518d95b67cb3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:addVerbruikAuto>\r
+         <res:eigenaar>Bouwe</res:eigenaar>\r
+         <res:auto>Fiat</res:auto>\r
+         <res:verbruik>0.3</res:verbruik>\r
+         <res:kilometerStand>185212</res:kilometerStand>\r
+      </res:addVerbruikAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fed0a6c1-a581-403c-9d1d-e049b0ef7d46"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoToevoegen4" id="dd40aa0d-96d4-4e67-8ea4-50693262630c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>addVerbruikAuto</con:operation><con:request name="autoToevoegen4" id="ecc80f2c-43cf-4e5f-b5e1-f19af85913ce"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:addVerbruikAuto>\r
+         <res:eigenaar>Bramo</res:eigenaar>\r
+         <res:auto>BMW</res:auto>\r
+         <res:verbruik>-0.45</res:verbruik>\r
+         <res:kilometerStand>-82312</res:kilometerStand>\r
+      </res:addVerbruikAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="01dbbe70-10bb-429d-a837-81659adde2cc"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoToevoegen5" id="7ab9e47c-8f22-4c05-b82c-9525ba28e8aa"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>addVerbruikAuto</con:operation><con:request name="autoToevoegen5" id="4e4c2802-701d-4823-a462-8074baa10535"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:addVerbruikAuto>\r
+         <res:eigenaar>Bramo</res:eigenaar>\r
+         <res:auto>BMW</res:auto>\r
+         <res:verbruik>0</res:verbruik>\r
+         <res:kilometerStand>0</res:kilometerStand>\r
+      </res:addVerbruikAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1bfa2835-92db-41b3-86fd-82840deff992"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c9ed3fcb-28c8-4006-b5b0-2471b2a2086c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="autoVerbruikBereken" searchProperties="true"><con:settings/><con:testStep type="request" name="autoVerbruik1" id="00888353-ed89-48d6-9b78-21b66b857876"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>berekenVerbruikElecktrischeAuto</con:operation><con:request name="autoVerbruik1" id="e9cb7976-d217-46c2-b8d4-93548346cee9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:berekenVerbruikElecktrischeAuto>\r
+         <res:beginPunt>123231</res:beginPunt>\r
+         <res:eindPunt>123562</res:eindPunt>\r
+         <res:verbruikKWH>0.3</res:verbruikKWH>\r
+      </res:berekenVerbruikElecktrischeAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c7853793-f43e-4000-b136-2fbb38dc9330"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoVerbruik2" id="18e879d8-aef5-4851-9099-2a7857efc869"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>berekenVerbruikElecktrischeAuto</con:operation><con:request name="autoVerbruik2" id="10a1aa52-5776-4d21-8685-2be4db398732"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:berekenVerbruikElecktrischeAuto>\r
+         <res:beginPunt>12894</res:beginPunt>\r
+         <res:eindPunt>13212</res:eindPunt>\r
+         <res:verbruikKWH>0.2</res:verbruikKWH>\r
+      </res:berekenVerbruikElecktrischeAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5b230853-186f-45eb-9553-322fe715f1ed"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoVerbruik3" id="91ea14d9-261d-48b2-8fd0-7511acbfb144"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>berekenVerbruikElecktrischeAuto</con:operation><con:request name="autoVerbruik3" id="d336765a-4108-4d3d-907f-2fed2cc3bcbb"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:berekenVerbruikElecktrischeAuto>\r
+         <res:beginPunt>84231</res:beginPunt>\r
+         <res:eindPunt>84300</res:eindPunt>\r
+         <res:verbruikKWH>0.25</res:verbruikKWH>\r
+      </res:berekenVerbruikElecktrischeAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="af2a8b9c-c44f-49d3-b7ee-9796984a4e97"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoVerbruik4" id="69feaa60-3473-4d8a-ae2c-7406faa06f2e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>berekenVerbruikElecktrischeAuto</con:operation><con:request name="autoVerbruik4" id="9d2580fe-c683-40fd-8a96-5f2acc5c10fe"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:berekenVerbruikElecktrischeAuto>\r
+         <res:beginPunt>0</res:beginPunt>\r
+         <res:eindPunt>0</res:eindPunt>\r
+         <res:verbruikKWH>0.25</res:verbruikKWH>\r
+      </res:berekenVerbruikElecktrischeAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="124701ee-1a63-479d-bb90-f84a153417ec"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="autoVerbruik5" id="d4d88f02-3464-439b-a3e7-2803bc0e5b00"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ElecktrischeAutoImplSoapBinding</con:interface><con:operation>berekenVerbruikElecktrischeAuto</con:operation><con:request name="autoVerbruik5" id="f8daa688-4c6e-48c7-88e3-a8ac3f72fc4b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://Resources">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <res:berekenVerbruikElecktrischeAuto>\r
+         <res:beginPunt>-84231</res:beginPunt>\r
+         <res:eindPunt>-84300</res:eindPunt>\r
+         <res:verbruikKWH>-0.12</res:verbruikKWH>\r
+      </res:berekenVerbruikElecktrischeAuto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e0b18b87-e8d2-410b-90da-b673927b30b7"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
