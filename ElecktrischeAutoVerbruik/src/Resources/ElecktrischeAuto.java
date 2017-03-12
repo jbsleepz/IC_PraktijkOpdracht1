@@ -5,13 +5,14 @@ public class ElecktrischeAuto {
 	private String Auto;
 	private double verbruik;
 	private int KilometerStand;
-	private Store store = new Store();
+	private Store store ;
 
 	public ElecktrischeAuto() {
-
+		store = new Store();
 	}
 
 	public ElecktrischeAuto(String eigenaar, String auto, double verbruik, int kilometerStand) {
+		store = new Store();
 		this.eigenaar = eigenaar;
 		Auto = auto;
 		this.verbruik = verbruik;
