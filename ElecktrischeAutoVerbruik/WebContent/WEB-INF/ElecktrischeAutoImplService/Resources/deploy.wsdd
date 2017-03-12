@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ElecktrischeAutoImplService WSDL service -->
+
+  <service name="ElecktrischeAutoImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Resources"/>
+      <parameter name="wsdlServiceElement" value="ElecktrischeAutoImplService"/>
+      <parameter name="schemaQualified" value="http://Resources"/>
+      <parameter name="wsdlServicePort" value="ElecktrischeAutoImpl"/>
+      <parameter name="className" value="Resources.ElecktrischeAutoImpl"/>
+      <parameter name="wsdlPortType" value="ElecktrischeAutoImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://Resources" xmlns:retNS="http://Resources" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addVerbruikAuto" qname="operNS:addVerbruikAuto" returnQName="retNS:addVerbruikAutoReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Resources" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:eigenaar" type="tns:string"/>
+        <parameter xmlns:pns="http://Resources" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:auto" type="tns:string"/>
+        <parameter xmlns:pns="http://Resources" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:verbruik" type="tns:double"/>
+        <parameter xmlns:pns="http://Resources" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:kilometerStand" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://Resources" xmlns:retNS="http://Resources" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="berekenVerbruikElecktrischeAuto" qname="operNS:berekenVerbruikElecktrischeAuto" returnQName="retNS:berekenVerbruikElecktrischeAutoReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://Resources" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:beginPunt" type="tns:int"/>
+        <parameter xmlns:pns="http://Resources" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:eindPunt" type="tns:int"/>
+        <parameter xmlns:pns="http://Resources" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:verbruikKWH" type="tns:double"/>
+      </operation>
+      <parameter name="allowedMethods" value="addVerbruikAuto berekenVerbruikElecktrischeAuto"/>
+
+  </service>
+</deployment>

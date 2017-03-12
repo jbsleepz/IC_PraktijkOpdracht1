@@ -1,0 +1,89 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\apache-tomcat-8.0.33\wtpwebapps\ElecktrischeAutoVerbruik\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="ElecktrischeAuto" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="getAuto" qname="ns1:getAuto" returnQName="ns1:getAutoReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://Resources" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:operation name="berekenVerbruik" qname="ns2:berekenVerbruik" returnQName="ns2:berekenVerbruikReturn" returnType="xsd:double" soapAction="" xmlns:ns2="http://Resources" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:beginPunt" type="xsd:int"/>
+   <ns1:parameter qname="ns2:eindPunt" type="xsd:int"/>
+   <ns1:parameter qname="ns2:verbruikKWH" type="xsd:double"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="berekenVerbruik getAuto"/>
+  <ns1:parameter name="wsdlPortType" value="ElecktrischeAuto"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://Resources"/>
+  <ns1:parameter name="wsdlServicePort" value="ElecktrischeAuto"/>
+  <ns1:parameter name="className" value="Resources.ElecktrischeAuto"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Resources"/>
+  <ns1:parameter name="wsdlServiceElement" value="ElecktrischeAutoService"/>
+ </ns1:service>
+ <ns1:service name="ElecktrischeAutoImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="addVerbruikAuto" qname="ns3:addVerbruikAuto" returnQName="ns3:addVerbruikAutoReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://Resources" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:eigenaar" type="xsd:string"/>
+   <ns1:parameter qname="ns3:auto" type="xsd:string"/>
+   <ns1:parameter qname="ns3:verbruik" type="xsd:double"/>
+   <ns1:parameter qname="ns3:kilometerStand" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="berekenVerbruikElecktrischeAuto" qname="ns4:berekenVerbruikElecktrischeAuto" returnQName="ns4:berekenVerbruikElecktrischeAutoReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://Resources" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:beginPunt" type="xsd:int"/>
+   <ns1:parameter qname="ns4:eindPunt" type="xsd:int"/>
+   <ns1:parameter qname="ns4:verbruikKWH" type="xsd:double"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addVerbruikAuto berekenVerbruikElecktrischeAuto"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="ElecktrischeAutoImpl"/>
+  <ns1:parameter name="className" value="Resources.ElecktrischeAutoImpl"/>
+  <ns1:parameter name="wsdlServicePort" value="ElecktrischeAutoImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://Resources"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Resources"/>
+  <ns1:parameter name="wsdlServiceElement" value="ElecktrischeAutoImplService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

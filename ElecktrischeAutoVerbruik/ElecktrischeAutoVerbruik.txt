@@ -1,0 +1,5 @@
+ BeginPunt: 50 EindPunt: 245 Verbruik KWH 0.55 TotaalVerbruikt : 107.0
+ BeginPunt: 300 EindPunt: 500 Verbruik KWH 0.55 TotaalVerbruikt : 110.0
+ BeginPunt: 432 EindPunt: 652 Verbruik KWH 0.55 TotaalVerbruikt : 121.0
+ BeginPunt: 432 EindPunt: 652 Verbruik KWH -0.32 TotaalVerbruikt : -70.0
+ BeginPunt: 432 EindPunt: 652 Verbruik KWH -0.91 TotaalVerbruikt : -200.0

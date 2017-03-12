@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Resources" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Resources" xmlns:intf="http://Resources" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Resources" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addVerbruikAuto">
+    <complexType>
+     <sequence>
+      <element name="eigenaar" type="xsd:string"/>
+      <element name="auto" type="xsd:string"/>
+      <element name="verbruik" type="xsd:double"/>
+      <element name="kilometerStand" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addVerbruikAutoResponse">
+    <complexType>
+     <sequence>
+      <element name="addVerbruikAutoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="berekenVerbruikElecktrischeAuto">
+    <complexType>
+     <sequence>
+      <element name="beginPunt" type="xsd:int"/>
+      <element name="eindPunt" type="xsd:int"/>
+      <element name="verbruikKWH" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="berekenVerbruikElecktrischeAutoResponse">
+    <complexType>
+     <sequence>
+      <element name="berekenVerbruikElecktrischeAutoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="berekenVerbruikElecktrischeAutoResponse">
+
+      <wsdl:part element="impl:berekenVerbruikElecktrischeAutoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addVerbruikAutoRequest">
+
+      <wsdl:part element="impl:addVerbruikAuto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addVerbruikAutoResponse">
+
+      <wsdl:part element="impl:addVerbruikAutoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="berekenVerbruikElecktrischeAutoRequest">
+
+      <wsdl:part element="impl:berekenVerbruikElecktrischeAuto" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ElecktrischeAutoImpl">
+
+      <wsdl:operation name="addVerbruikAuto">
+
+         <wsdl:input message="impl:addVerbruikAutoRequest" name="addVerbruikAutoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addVerbruikAutoResponse" name="addVerbruikAutoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="berekenVerbruikElecktrischeAuto">
+
+         <wsdl:input message="impl:berekenVerbruikElecktrischeAutoRequest" name="berekenVerbruikElecktrischeAutoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:berekenVerbruikElecktrischeAutoResponse" name="berekenVerbruikElecktrischeAutoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ElecktrischeAutoImplSoapBinding" type="impl:ElecktrischeAutoImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addVerbruikAuto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addVerbruikAutoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addVerbruikAutoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="berekenVerbruikElecktrischeAuto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="berekenVerbruikElecktrischeAutoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="berekenVerbruikElecktrischeAutoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ElecktrischeAutoImplService">
+
+      <wsdl:port binding="impl:ElecktrischeAutoImplSoapBinding" name="ElecktrischeAutoImpl">
+
+         <wsdlsoap:address location="http://localhost:8082/ElecktrischeAutoVerbruik/services/ElecktrischeAutoImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
