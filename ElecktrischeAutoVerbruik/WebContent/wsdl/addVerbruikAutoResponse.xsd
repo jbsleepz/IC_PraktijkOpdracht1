@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:annotation>
+		<xs:appinfo>XSD response schema</xs:appinfo>
+		<xs:documentation> als response worden de gegevens teruggegeven
+			eigenaar, auto, kilometerstand en verbruik
+			daarnaast zullen de
+			gegevens naar een textfile worden weggeschreven
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="addVerbruikAutoResponse">
+
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="addVerbruikAutoReturn" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+</xs:schema>

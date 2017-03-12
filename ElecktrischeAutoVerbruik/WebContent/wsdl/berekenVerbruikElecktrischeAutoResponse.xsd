@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:annotation>
+		<xs:appinfo>XSD Response schema</xs:appinfo>
+		<xs:documentation>
+			hier wordt de response terrug gegeven van de formule:
+			((eindPunt-beginPunt)*verbruikKWH).
+			Het antwoord hierop wordt alleen
+			teruggeven als de ingevoerde waardes
+			boven 0 liggen met uitzondering van het beginPunt.
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="berekenVerbruikElecktrischeAutoResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="berekenVerbruikElecktrischeAutoReturn"
+					type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

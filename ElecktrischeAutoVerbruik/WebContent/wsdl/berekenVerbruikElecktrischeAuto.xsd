@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:annotation>
+		<xs:appinfo>XSD Request schema</xs:appinfo>
+		<xs:documentation> als request worden de gegevens meegegeven
+			beginPunt, eindPunt en verbruikKWH. Met deze gegevens wordt de
+			volgende formule gemaakt ((eindPunt-beginPunt)*verbruikKWH).
+			Hiermee
+			wordt dus gekeken hoeveel elecktriciteit is verbruikt.
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="addVerbruikAuto">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="beginPunt" type="xs:int" />
+				<xs:element name="eindPunt" type="xs:int" />
+				<xs:element name="verbruikKWH" type="xs:double" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
